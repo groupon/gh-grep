@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if [ "$*" != "auth status --show-token" ]; then
+  echo "unhandled mock gh invocation: gh $*" >&2
+  exit 1
+fi
+
+# simulate gh auth status --show-token, which outputs everything to stderr (!?!)
+cat >&2 <<EOF
+github.com
+  ✓ Logged in to github.com as someuser (oauth_token)
+  ✓ Git operations for github.com configured to use ssh protocol.
+  ✓ Token: gho_1234567890abcdefghijklmnopqrstuvwxyz
+
+EOF

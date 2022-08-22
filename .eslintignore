@@ -1,0 +1,11 @@
+tmp
+node_modules/
+.git
+examples/
+tmp/
+dist/
+public/
+**/vendor*/
+/lib
+/*.js
+/*.d.ts

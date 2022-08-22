@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "groupon/typescript",
+    "plugin:regexp/recommended"
+  ],
+  "overrides": [
+    {
+      "files": "*.test.*",
+      "env": {
+        "mocha": true
+      }
+    },
+    {
+      "files": "*.test.{ts,tsx}",
+      "parserOptions": {
+        "project": "test/tsconfig.json"
+      }
+    }
+  ],
+  "root": true
+}

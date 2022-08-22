@@ -1,0 +1,10 @@
+#!/bin/bash -e
+
+cd -- "$(dirname -- "${BASH_SOURCE[0]}")"
+
+if ! [ -d node_modules ]; then
+  echo "gh grep: Performing one-time dependency installation" >&2
+  npm ci --omit=dev
+fi
+
+exec node lib/cli.js "$@"
