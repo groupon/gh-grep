@@ -31,3 +31,29 @@ arguments to separate them from the list of owner/repos.
 
 If you omit the repos to search, it will do an implicit GH code search first
 to get a list of repos to try the `grep` on.
+
+## Examples
+
+Find uses of `lodash` as a dependency in a few different repos:
+
+```
+$ gh grep lodash package.json groupon/gofer groupon/gofer-openapi testiumjs/testium-driver-wd
+groupon/gofer-openapi:     "lodash.camelcase": "^4.3.0",
+groupon/gofer-openapi:     "lodash.upperfirst": "^4.3.1",
+groupon/gofer-openapi:     "@types/lodash.camelcase": "^4.3.6",
+groupon/gofer-openapi:     "@types/lodash.upperfirst": "^4.3.6",
+groupon/gofer:     "lodash.isplainobject": "^4.0.6",
+groupon/gofer:     "lodash.merge": "^4.6.2",
+groupon/gofer:     "lodash.mergewith": "^4.6.2"
+testiumjs/testium-driver-wd:     "lodash.method": "^4.5.2",
+```
+
+Find a term in specific files in any repo on a private GitHub instance
+(performs a search first)
+
+```
+$ GH_HOST=github.example.com gh grep kittens \[ README.md CHANGELOG.md \]
+org1/repo1: README.md: But the kittens are here
+org1/repo1: CHANGELOG.md: Removed kittens after
+org2/repo2: CHANGELOG.md: Added kittens because
+```
